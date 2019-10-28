@@ -59,8 +59,8 @@ window.addEventListener("load", function () {
    });
  });
 
-
-
+//update CSS
+//document.getElementById("faultyItems").style.visibility = "visible";
 
 
   //--I think this will pull the user entered info into my functions --
