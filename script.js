@@ -10,9 +10,9 @@ window.addEventListener("load", function () {
   if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoWeight.value === "") {
    alert("All fields are required!");
     event.preventDefault();
-   }
+      }
     });
-     });
+  });
 
 
 //-- I think alert if not a number or not a letter-->
@@ -31,9 +31,9 @@ window.addEventListener("load", function () {
    else if (isNaN(cargoWeight.value)) { 
   alert("Please enter numerical data for cargo weight!");
   event.preventDefault();
-  } 
-  }
-  });
+         } 
+       }
+    });
   });
 
   
@@ -55,9 +55,9 @@ window.addEventListener("load", function () {
        alert("Please enter alphabetic data for Co-Pilot Name!");
         event.preventDefault();
        } 
-       }
+      }
    });
-   });
+ });
 
 
 
