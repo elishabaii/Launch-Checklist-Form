@@ -1,74 +1,123 @@
 // Write your JavaScript code here!
-
+//---alert if no entry
 window.addEventListener("load", function () {
   let form = document.querySelector("form");
   form.addEventListener("submit", function (event) {
-  let pilotName = document.querySelector("input[name=pilotName]");
-  let copilotName = document.querySelector("input[name=copilotName]");
-  let fuelLevel = document.querySelector("input[name=fuelLevel]");
-  let cargoWeight = document.querySelector("input[name=cargoWeight]");
-  if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoWeight.value === "") {
-   alert("All fields are required!");
-    event.preventDefault();
+    let pilotName = document.querySelector("input[name=pilotName]");
+    let copilotName = document.querySelector("input[name=copilotName]");
+    let fuelLevel = document.querySelector("input[name=fuelLevel]");
+    let cargoWeight = document.querySelector("input[name=cargoWeight]");
+    if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoWeight.value === "") {
+      alert("All fields are required!");
+      event.preventDefault();
+    }
+  });
+});
+
+
+//--  alert if not a number 
+window.addEventListener("load", function () {
+  let form = document.querySelector("form");
+  form.addEventListener("submit", function (event) {
+    let fuelLevel = document.querySelector("input[name=fuelLevel]");
+    let cargoWeight = document.querySelector("input[name=cargoWeight]");
+    if (isNaN(fuelLevel.value) || isNaN(cargoWeight.value)) {
+      if (isNaN(fuelLevel.value) && isNaN(cargoWeight.value)) {
+        alert("Please enter numerical data for fuel level and cargo weight!");
       }
-    });
-  });
-
-
-//-- I think alert if not a number or not a letter-->
-window.addEventListener("load", function () {
-  let form = document.querySelector("form");
-  form.addEventListener("submit", function (event) {
-  let fuelLevel = document.querySelector("input[name=fuelLevel]");
-  let cargoWeight = document.querySelector("input[name=cargoWeight]");
-  if (isNaN(fuelLevel.value) || isNaN(cargoWeight.value)) { 
-  if (isNaN(fuelLevel.value) && isNaN(cargoWeight.value)) { 
-  alert("Please enter numerical data for fuel level and cargo weight!");
-  }
-  else if (isNaN(fuelLevel.value)) { 
-   alert("Please enter numerical data for fuel level!");
-  }
-   else if (isNaN(cargoWeight.value)) { 
-  alert("Please enter numerical data for cargo weight!");
-  event.preventDefault();
-         } 
-       }
-    });
-  });
-
-  
-
-  //-I think this will alert if not a letter-->
-  window.addEventListener("load", function () {
-   let form = document.querySelector("form");
-   form.addEventListener("submit", function (event) {
-      let pilotName = document.querySelector("input[name=pilotName]");
-      let copilotName = document.querySelector("input[name=copilotName]");
-      if (!isNaN(pilotName.value) || !isNaN(copilotName.value)) { 
-      if (!isNaN(pilotName.value) && !isNaN(copilotName.value)) { 
-         alert("Please enter alphabetic data for Pilot Name and Co-pilot Name!");
-       }
-      else if (!isNaN(pilotName.value)) { 
-       alert("Please enter alphabetic data for Pilot Name!");
-       }
-      else if (!isNaN(cargoWeight.value)) { 
-       alert("Please enter alphabetic data for Co-Pilot Name!");
+      else if (isNaN(fuelLevel.value)) {
+        alert("Please enter numerical data for fuel level!");
+      }
+      else if (isNaN(cargoWeight.value)) {
+        alert("Please enter numerical data for cargo weight!");
         event.preventDefault();
-       } 
       }
-   });
- });
+    }
+  });
+});
 
-//update CSS
+
+
+//- this will alert if not a letter--
+window.addEventListener("load", function () {
+  let form = document.querySelector("form");
+  form.addEventListener("submit", function (event) {
+    let pilotName = document.querySelector("input[name=pilotName]");
+    let copilotName = document.querySelector("input[name=copilotName]");
+    if (!isNaN(pilotName.value) || !isNaN(copilotName.value)) {
+      if (!isNaN(pilotName.value) && !isNaN(copilotName.value)) {
+        alert("Please enter alphabetic data for Pilot Name and Co-pilot Name!");
+      }
+      else if (!isNaN(pilotName.value)) {
+        alert("Please enter alphabetic data for Pilot Name!");
+      }
+      else if (!isNaN(cargoWeight.value)) {
+        alert("Please enter alphabetic data for Co-Pilot Name!");
+        event.preventDefault();
+      }
+    }
+  });
+});
+
+//alert if fuel level too low, weight too high
+/*
+***********TODO change to pull from css
+window.addEventListener("load", function () {
+  let form = document.querySelector("form");
+  form.addEventListener("submit", function (event) {
+*************************************************************************
+ <div id="launchStatusCheck">
+        <h2 id="launchStatus">Awaiting Information Before Launch</h2>
+        <div id="faultyItems">
+            <ol>
+                <li id="pilotStatus">Pilot Ready</li>
+                <li id="copilotStatus">Co-pilot Ready</li>
+                <li id="fuelStatus">Fuel level high enough for launch</li>
+                <li id="cargoStatus">Cargo weight low enough for launch</li>
+   
+   
+                *************************************************************************
+
+  */
+
+/*
+ window.addEventListener("load", function () {
+  let form = document.querySelector("form");
+  form.addEventListener("submit", function (event) {
+
+    let launchStatus = document.getElementById("launchStatus");
+    let faultyItems = document.getElementById("faultyItems");
+    let pilotStatus = document.getElementById('${pilotName}');
+    let copilotStatus = document.getElementById('${copilotName}');
+    let fuelStatus = document.getElementById("fuelStatus");
+    document.getElementById("fuelStatus");
+    
+   
+    if(fuelLevel.value < 10000) || (cargoWeight.value > 10000) {
+     document.getElementById("launchStatus").innerHTML="Shuttle Not Ready For Launch";
+     document.getElementById("launchStatus").innerHTML.style.color = "red";
+     document.getElementById("faultyItems").style.visability = "visable";
+    document.getElementById("pilotStatus").innerHTML = "'${pilotName}' Ready For Launch";
+    document.getElementById("coPilotStatus").innerHTML = "'${copilotName}' Ready For Launch";
+    document.getElementById("fuelStatus").innerHTML = "Not Ready For Launch";
+     document.getElementById("fuelStatus").innerHTML = "Not Ready For Launch";
+             event.preventDefault();
+     }
+    }
+  });
+
+   
+*/
+//this should update CSS
 //document.getElementById("faultyItems").style.visibility = "visible";
 
 
   //--I think this will pull the user entered info into my functions --
- /*<p id="main-text">Lots of things to say</p>
+/*<p id="main-text">Lots of things to say</p>
 
-      let p = document.getElementById("main-text");
-      p.append("words");
-      console.log(p.innerHTML);
+     let p = document.getElementById("main-text");
+     p.append("words");
+     console.log(p.innerHTML);
 */
  //-I think this will use a template literal to update pilot and co pilot names from input -->
 /*
