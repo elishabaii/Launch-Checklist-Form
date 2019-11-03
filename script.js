@@ -1,49 +1,62 @@
 // Write your JavaScript code here!
 
 window.addEventListener("load", function () {
-
+  
   let form = document.querySelector("form");
 
   form.addEventListener("submit", function (event) {
+    event.preventDefault();
     let pilotName = document.querySelector("input[name=pilotName]");
     let copilotName = document.querySelector("input[name=copilotName]");
     let fuelLevel = document.querySelector("input[name=fuelLevel]");
     let cargoMass = document.querySelector("input[name=cargoMass]");
-
+    //event.preventDefault();
 
 
     //---alert if no entry
     if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "") {
    // if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" ) {
         alert("All fields are required!");
-
+       // event.preventDefault();
     }
-
+    
     //--  alert if not a number
-    if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
+    else if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
       alert("Please enter numerical data for both fuel level and cargo weight!");
+      //event.preventDefault();
     }           
-    event.preventDefault();   
+
  
-
-
     //- this will alert if not a letter--
-    if (!isNaN(pilotName.value) || !isNaN(copilotName.value)) {
-      ("Please enter alphabetic data for both Pilot Name and Co-pilot Name!");
+    else if (!isNaN(pilotName.value) || !isNaN(copilotName.value)) {
+      alert("Please enter alphabetic data for both Pilot Name and Co-pilot Name!");
+     // event.preventDefault();
+    } 
+      //for cargo and fuel RED
+    if (fuelLevel.value < 10000 || cargoMass.value > 10000) {
+      document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready For Launch";
+      document.getElementById("launchStatus").style.color = "red";
+      document.getElementById("faultyItems").style.visibility = "visible";
+      document.getElementById("pilotStatus").innerHTML = `${pilotName.value} Ready For Launch`;
+      document.getElementById("copilotStatus").innerHTML = `${copilotName.value} Ready For Launch`;
+      document.getElementById("fuelStatus").innerHTML = "Fuel Not Ready For Launch";
+      document.getElementById("cargoStatus").innerHTML = "Cargo Not Ready For Launch";
+      //event.preventDefault();
     }
-    else if (!isNaN(pilotName.value) && !isNaN(copilotName.value)) {
-      alert("Please enter alphabetic data for Pilot Name and Co-pilot Name!");
-    }
-    else if (!isNaN(pilotName.value)) {
-      alert("Please enter alphabetic data for Pilot Name!");
-    }
-    else if (!isNaN(copilotName.value)) {
-      alert("Please enter alphabetic data for Co-Pilot Name!");
-         }
-    event.preventDefault();
+    //for cargo and fuel GREEN
+ if (fuelLevel.value > 10000 || cargoMass.value < 10000) {
+   document.getElementById("launchStatus").innerHTML ="Shuttle is Ready For Launch";
+   document.getElementById("launchStatus").style.color = "green";
+   document.getElementById("faultyItems").style.visibility = "visible";
+   document.getElementById("pilotStatus").innerHTML= `${pilotName.value} Ready For Launch`;
+   document.getElementById("copilotStatus").innerHTML = `${copilotName.value} Ready For Launch`;
+   document.getElementById("fuelStatus").innerHTML = "Fuel level Ready For Launch";
+   document.getElementById("cargoStatus").innerHTML = "Cargo Ready For Launch";
+ // event.preventDefault();
+ }
   });
-
 });
+
 /*
     this.document.getElementById("formSubmit").onclick = function (){
       let launchStatus = document.getElementById("launchStatus");
@@ -52,17 +65,10 @@ window.addEventListener("load", function () {
       let copilotStatus = document.getElementById("copilotStatus");
       let fuelStatus = document.getElementById("fuelStatus");
       let cargoStatus = document.getElementById("cargoStatus");
-      */
+*/
     //for cargo and fuel
     /*
-    if (fuelLevel < 10000 || cargoMass > 10000) {
-      document.getElementById("launchStatus").innerHTML = "Shuttle Not Ready For Launch";
-      document.getElementById("launchStatus").style.color = "red";
-      document.getElementById("faultyItems").style.visability = "visable";
-      document.getElementById('${pilotName}').innerHTML = "'${pilotName}' Ready For Launch";
-      document.getElementById('${copilotName}').innerHTML = "'${copilotName}' Ready For Launch";
-      document.getElementById("fuelStatus").innerHTML = "Not Ready For Launch";
-      document.getElementById("cargoStatus").innerHTML = "Not Ready For Launch";
+
 }    
  event.preventDefault();
 });
@@ -79,9 +85,9 @@ let cargoMassResponse = 'Check Cargo Mass!'
 */
 
 /*//for cargo and fuel
- if (fuelLevelInput < 10000 || cargoMassInput > 10000) {
- document.getElementById("launchStatus").innerHTML ="Shuttle Not Ready For Launch";
-document.getElementById("launchStatus").style.color = "red";
+ if (fuelLevelInput > 10000 || cargoMassInput < 10000) {
+ document.getElementById("launchStatus").innerHTML ="Shuttle is Ready For Launch";
+document.getElementById("launchStatus").style.color = "green";
 document.getElementById("faultyItems").style.visability = "visable";
  document.getElementById('${pilotName}').innerHTML= "'${pilotName}' Ready For Launch";
  document.getElementById('${copilotName}').innerHTML = "'${copilotName}' Ready For Launch";
