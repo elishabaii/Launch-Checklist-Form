@@ -3,7 +3,7 @@ window.addEventListener("load", function () {
   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
     response.json().then(function (json) {
       const target = document.getElementById("missionTarget");
-     target.innerHTML = `<h2 id="Mission Destination"</h2>
+     target.innerHTML = `<h2> id="Mission Destination"</h2>
           <ol>
             <li> Name ${json[1].name}</li>
             <li>Diameter ${json[1].diameter}</li>
@@ -11,7 +11,7 @@ window.addEventListener("load", function () {
             <li> Distance from Earth ${json[1].distance}</li>
             <li> Number of Moons ${json[1].moons}</li>
           </ol>
-          <img src="${json[1].image}"></img>`
+          <img src="${json[1].image}"</img>`
     });
   });
 });
