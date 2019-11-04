@@ -2,21 +2,22 @@
 window.addEventListener("load", function () {
   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function (response) {
     response.json().then(function (json) {
-      const div = document.getElementById("missionTarget");
-      // Add HTML that includes the JSON data
-      <h2>Mission Destination</h2>
-        <ol>
-          <li>Name: ${json[1].name}</li>
-          <li>Diameter: ${json[1].diameter}</li>
-          <li>Star: ${json[1].star}</li>
-          <li>Distance from Earth: ${json[1].distance}</li>
-          <li>Number of Moons: ${json[1].moons}</li>
-        </ol>
-        <img src="${json[1].image}"
-    //   div.innerHTML = missionTarget
- }
+      const target = document.getElementById("missionTarget");
+     target.innerHTML = `<h2 id="Mission Destination"</h2>
+          <ol>
+            <li> Name ${json[1].name}</li>
+            <li>Diameter ${json[1].diameter}</li>
+            <li> Star ${json[1].star}</li>
+            <li> Distance from Earth ${json[1].distance}</li>
+            <li> Number of Moons ${json[1].moons}</li>
+          </ol>
+          <img src="${json[1].image}"></img>`
+    });
+  });
 });
-});
+
+ 
+
 
 window.addEventListener("load", function () {
 let form = document.querySelector("form");
@@ -152,3 +153,4 @@ response.json().then( function(json) {
 <img src="${json[1].image}"
 }
 */
+

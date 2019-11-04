@@ -11,6 +11,15 @@
     <h1>Launch Checklist Form</h1>
     <div id="missionTarget">
         <!-- Fetch some planetary data -->
+        <h2 id="Mission Destination"</h2>
+          <ol>
+            <li> Name ${json[1].name}</li>
+            <li>Diameter ${json[1].diameter}</li>
+            <li> Star ${json[1].star}</li>
+            <li> Distance from Earth ${json[1].distance}</li>
+            <li> Number of Moons ${json[1].moons}</li>
+          </ol>
+          <img src="${json[1].image}">
     </div>
     <div id="launchForm">
         <form>
@@ -40,5 +49,6 @@
             </ol>
         </div>
 
+      
 </body>
 </html>
